@@ -92,13 +92,10 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "bd_material_manager",
-        "USER": "user",
-        "PASSWORD": "user",
+        "USER": "ketrika",
+        "PASSWORD": "Ketrika  27",
         "HOST": "127.0.0.1",
         "PORT": "5432",
-        "OPTIONS": {
-            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"',
-        },
     }
 }
 
