@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9
+FROM python:3.9.6-alpine
 
 # Set environment varibles
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -9,7 +9,7 @@ ENV DJANGO_SETTINGS_MODULE=material_manager.settings.production
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+COPY . /back_end_material_manager
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
