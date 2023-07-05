@@ -1,24 +1,25 @@
-version: '3.8'
+version: "3.8"
 services:
   db:
-    image: postgres:13.0-alpine
+    image: postgres:14-alpine
+    ports:
+      - "5432:5432"
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=bd_material_manager
+      - POSTGRES_USER=ketrika
+      - POSTGRES_PASSWORD=Ketrika  27
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - /data/db:/var/lib/postgresql/data
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/usr/src/back_end_material_manager
+      - ./src:/code
     ports:
-      - 8000:8000
+      - "8000:8000"
+    environment:
+      - POSTGRES_DB=bd_material_manage_docker
+      - POSTGRES_USER=ketrika
+      - POSTGRES_PASSWORD=Ketrika  27
     depends_on:
       - db
-    environment:
-      - DJANGO_SETTINGS_MODULE=material_manager.settings.production
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
-volumes:
-  postgres_data:
